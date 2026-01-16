@@ -165,53 +165,15 @@ gcloud projects add-iam-policy-binding ${GOOGLE_CLOUD_PROJECT} \
     --member="user:YOUR_EMAIL@domain.com" \
     --role="roles/storage.objectAdmin"
 
-```bash
-# 선택사항 1: Use ADK web interface (recommended for interactive usage)
-adk web 
-
-# 선택사oogle Cloud project
-- [Google Cloud SDK](https://cloud.google.com/sdk/docs/install)
-- Vertex AI and Cloud Storage의 접근
-
-## 설치
-
-```bash
-# repository 복사
-git clone https://github.com/arjunprabhulal/adk-vertex-ai-rag-engine.git
-cd adk-vertex-ai-rag-engine
-
-# (선택사항) 가상환경 생성 및 활성화
-python -m venv .venv
-source .venv/bin/activate  # On Windows: .venv\Scripts\activate
-
-# 의존성 설치
-pip install -r requirements.txt
-
-# 본인의 Google Cloud project으로 설정
-export GOOGLE_CLOUD_PROJECT="your-project-id"
-export GOOGLE_CLOUD_LOCATION="us-central1"
-
-# Google Cloud services 활성화하기 (필요)
-gcloud services enable aiplatform.googleapis.com --project=${GOOGLE_CLOUD_PROJECT}
-gcloud services enable storage.googleapis.com --project=${GOOGLE_CLOUD_PROJECT}
-
-# IAM 권한 설정
-gcloud projects add-iam-policy-binding ${GOOGLE_CLOUD_PROJECT} \
-    --member="user:YOUR_EMAIL@domain.com" \
-    --role="roles/aiplatform.user"
-gcloud projects add-iam-policy-binding ${GOOGLE_CLOUD_PROJECT} \
-    --member="user:YOUR_EMAIL@domain.com" \
-    --role="roles/storage.objectAdmin"
-
-# Set up Gemini API key
-# Get your API key from Google AI Studio: https://ai.google.dev/
+# Gemini API key 설정
+# API key를 Google AI Studio에서 받으세요: https://ai.google.dev/
 export GOOGLE_API_KEY=your_gemini_api_key_here
 
-# Set up authentication credentials
-# Option 1: Use gcloud application-default credentials (recommended for development)
+# 인증 자격 증명 설정
+# 선택 1: Use gcloud application-default credentials (recommended for development)
 gcloud auth application-default login
 
-# Option 2: Use a service account key (for production or CI/CD environments)
+# 선택 2: Use a service account key (for production or CI/CD environments)
 # Download your service account key from GCP Console and set the environment variable
 export GOOGLE_APPLICATION_CREDENTIALS=/path/to/your/service-account-key.json
 ```
