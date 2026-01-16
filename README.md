@@ -1,6 +1,6 @@
 # Agent Development Kit (ADK) + Vertex AI RAG Engine
 
-A production-ready Retrieval-Augmented Generation (RAG) engine built with Google's [Agent Development Kit (ADK)](https://google.github.io/adk-docs/) and [Vertex AI RAG Engine](https://cloud.google.com/vertex-ai/generative-ai/docs/rag-engine/rag-overview). This project provides a modular framework for managing Google Cloud Storage (GCS) buckets, RAG corpora, and document retrieval with a focus on best practices and user experience.
+구글의 [Agent Development Kit (ADK)](https://google.github.io/adk-docs/) 과 [Vertex AI RAG Engine](https://cloud.google.com/vertex-ai/generative-ai/docs/rag-engine/rag-overview)으로 제작된 검색 증강 생성(RAG) 엔진. 이 프로젝트는 Google Cloud Storage (GCS) 버킷, RAG corpora 및 문서 검색을 관리하기 위한 모듈식 프레임워크를 제공합니다.
 
 ![RAG Query Interface](.Images/RAG-Single-Query-Search-Web.gif)
 
@@ -8,36 +8,36 @@ A production-ready Retrieval-Augmented Generation (RAG) engine built with Google
 
 ## Vertex AI RAG Engine
 
-Vertex AI RAG Engine is a component of the Vertex AI Platform that facilitates Retrieval-Augmented Generation (RAG) and serves as a data framework for developing context-augmented large language model (LLM) applications. It enables you to enrich LLM context with your organization's private knowledge, reducing hallucinations and improving answer accuracy.
+Vertex AI RAG Engine은 Retrieval-Augmented Generation (RAG, 검색증강생성)을 촉진하는 Vertex AI 플랫폼의 구성 요소로, context 증강 large language model (LLM) 애플리케이션을 개발하기 위한 데이터 프레임워크 역할을 합니다. 이를 통해 조직의 사적인 지식을 기반으로 LLM context를 풍부하게 하고, 할루시네이션(환각)을 줄이고 답변 정확도를 증가시킬 수 있습니다.
 
-### RAG Process Concepts
+### RAG 프로세스 개념
 
-These concepts are listed in the order of the retrieval-augmented generation (RAG) process:
+이 개념들은 retrieval-augmented generation(RAG, 검색 증강 생성) 프로세스의 순서를 나열했습니다.:
 
-1. **Data ingestion**: Intake data from different data sources. For example, local files, Cloud Storage, and Google Drive.
+1. **Data ingestion**(데이터 수집): 다양한 데이터 소스에서 데이터를 가져옵니다. 예를 들어, 로컬 파일, GCS(구글 클라우드 스토리지), Google 드라이브 등.
 
-2. **Data transformation**: Conversion of the data in preparation for indexing. For example, data is split into chunks.
+2. **Data transformation**(데이터 변환): 분류를 위해 데이터를 변환합니다(전처리). 예를 들어, 데이터를 청크 단위로 나눕니다.
 
-3. **Embedding**: Numerical representations of words or pieces of text. These numbers capture the semantic meaning and context of the text. Similar or related words or text tend to have similar embeddings, which means they are closer together in the high-dimensional vector space.
+3. **Embedding**(임베딩): 단어들 텍스트 조각들의 수치화. 이러한 수치들은 텍스트의 의미와 맥락을 포착합니다. 비슷하거나 관련있는 단어 및 텍스트는 같은 임베딩을 갖는 경향이 있습니다. 이는 고차원 벡터상에서 가깝게 붙어있다는 이야기입니다.
 
-4. **Data indexing**: Vertex AI RAG Engine creates an index called a corpus. The index structures the knowledge base so it's optimized for searching. For example, the index is like a detailed table of contents for a massive reference book.
+4. **Data indexing**(데이터 분류): Vertex AI RAG Engine은 corpus라고 불리는 색인을 만듭니다. 이것은 지식 기반을 구조화하여 검색에 최적화합니다. 예를 들자면, 방대한 참고 서적의 상세한 목차와 같습니다.
 
-5. **Retrieval**: When a user asks a question or provides a prompt, the retrieval component in Vertex AI RAG Engine searches through its knowledge base to find information that is relevant to the query.
+5. **Retrieval**(검색): 유저가 질문을 하거나 프롬포트를 제공하면, Vertex AI RAG Engine의 검색 구성 요소는 자체 지식 기반에서 쿼리와 관련된 정보를 검색합니다.
 
-6. **Generation**: The retrieved information becomes the context added to the original user query as a guide for the generative AI model to generate factually grounded and relevant responses.
+6. **Generation**(생성): 검색된 정보는 사용자의 쿼리에 포함되어 가이드로서 생성형 AI 모델이 사실에 근거하고 관련있는 응답을 생성하는데 도움을 줍니다.
 
 ## Agent Development Kit (ADK)
 
-[Agent Development Kit (ADK)](https://google.github.io/adk-docs/) is a flexible and modular framework for developing and deploying AI agents. Key features include:
+[Agent Development Kit (ADK)](https://google.github.io/adk-docs/) 는 AI 에이전트를 개발하고 배포하기 위한 유연하고 모듈식 프레임워크입니다. 주요 기능은 다음과 같습니다.:
 
-- **Model-Agnostic**: While optimized for Gemini and the Google ecosystem, ADK works with any model.
-- **Flexible Orchestration**: Define workflows using workflow agents (`Sequential`, `Parallel`, `Loop`) or leverage LLM-driven dynamic routing for adaptive behavior.
-- **Multi-Agent Architecture**: Build modular applications by composing multiple specialized agents in a hierarchy.
-- **Rich Tool Ecosystem**: Equip agents with diverse capabilities through pre-built tools, custom functions, third-party integrations, or even other agents as tools.
-- **Deployment Ready**: Deploy agents anywhere – locally, on Vertex AI Agent Engine, or using Cloud Run/Docker.
-- **Built-in Evaluation**: Assess agent performance by evaluating both response quality and execution trajectory.
+- **Model-Agnostic**(모델에 구애받지 않음): ADK는 Gemini 및 Google 생태계에 최적화되어 있지만 모든 모델에서 작동합니다.
+- **Flexible Orchestration**(유연한 통합): 워크플로 에이전트(Sequential, Parallel, Loop)를 사용하여 워크플로를 정의하거나, LLM 기반 동적 라우팅을 활용하여 적응형 동작을 구현할 수 있습니다..
+- **Multi-Agent Architecture**(다중 에이전트 구조): 계층 구조로 여러 개의 특화된 에이전트를 조합하여 모듈형 애플리케이션을 구축합니다.
+- **Rich Tool Ecosystem**(풍부한 도구 생태계): 사전 구축된 도구, 사용자 지정 기능, 타사 통합 또는 다른 에이전트를 도구로 활용하는 등 다양한 기능을 에이전트에게 제공합니다.
+- **Deployment Ready**(배포 가능성): 에이전트를 어디든지 배포할 수 있습니다. – 로컬 혹은 Vertex AI Agent Engine 또는 Cloud Run/Docker에도.
+- **Built-in Evaluation**(내장된 평가 기능): 응답 품질과 실행 과정을 평가하여 에이전트 성능을 향상할 수 있습니다.
 
-ADK makes agent development feel more like software development, making it easier to create, deploy, and orchestrate agents ranging from simple tasks to complex workflows.
+ADK는 에이전트 개발을 소프트웨어 개발처럼 만들어주어 간단한 작업부터 복잡한 워크플로우에 이르기까지 다양한 에이전트를 더 쉽게 생성, 배포 및 통합할 수 있도록 합니다.
 
 ## Table of Contents
 
@@ -130,34 +130,72 @@ adk-vertex-ai-rag-engine/
 
 ## Prerequisites
 
-- Python 3.11+
-- Google Cloud project with Vertex AI API enabled
+- 파이썬 3.11+
+- Vertex AI API가 활성화된 Google Cloud project
 - [Google Cloud SDK](https://cloud.google.com/sdk/docs/install)
-- Access to Vertex AI and Cloud Storage
+- Vertex AI and Cloud Storage의 접근
 
-## Installation
+## 설치
 
 ```bash
-# Clone the repository
+# repository 복사
 git clone https://github.com/arjunprabhulal/adk-vertex-ai-rag-engine.git
 cd adk-vertex-ai-rag-engine
 
-# (Optional) Create and activate a virtual environment
+# (선택사항) 가상환경 생성 및 활성화
 python -m venv .venv
 source .venv/bin/activate  # On Windows: .venv\Scripts\activate
 
-# Install dependencies
+# 의존성 설치
 pip install -r requirements.txt
 
-# Configure your Google Cloud project
+# 본인의 Google Cloud project으로 설정
 export GOOGLE_CLOUD_PROJECT="your-project-id"
 export GOOGLE_CLOUD_LOCATION="us-central1"
 
-# Enable required Google Cloud services
+# Google Cloud services 활성화하기 (필요)
 gcloud services enable aiplatform.googleapis.com --project=${GOOGLE_CLOUD_PROJECT}
 gcloud services enable storage.googleapis.com --project=${GOOGLE_CLOUD_PROJECT}
 
-# Set up IAM permissions
+# IAM 권한 설정
+gcloud projects add-iam-policy-binding ${GOOGLE_CLOUD_PROJECT} \
+    --member="user:YOUR_EMAIL@domain.com" \
+    --role="roles/aiplatform.user"
+gcloud projects add-iam-policy-binding ${GOOGLE_CLOUD_PROJECT} \
+    --member="user:YOUR_EMAIL@domain.com" \
+    --role="roles/storage.objectAdmin"
+
+```bash
+# 선택사항 1: Use ADK web interface (recommended for interactive usage)
+adk web 
+
+# 선택사oogle Cloud project
+- [Google Cloud SDK](https://cloud.google.com/sdk/docs/install)
+- Vertex AI and Cloud Storage의 접근
+
+## 설치
+
+```bash
+# repository 복사
+git clone https://github.com/arjunprabhulal/adk-vertex-ai-rag-engine.git
+cd adk-vertex-ai-rag-engine
+
+# (선택사항) 가상환경 생성 및 활성화
+python -m venv .venv
+source .venv/bin/activate  # On Windows: .venv\Scripts\activate
+
+# 의존성 설치
+pip install -r requirements.txt
+
+# 본인의 Google Cloud project으로 설정
+export GOOGLE_CLOUD_PROJECT="your-project-id"
+export GOOGLE_CLOUD_LOCATION="us-central1"
+
+# Google Cloud services 활성화하기 (필요)
+gcloud services enable aiplatform.googleapis.com --project=${GOOGLE_CLOUD_PROJECT}
+gcloud services enable storage.googleapis.com --project=${GOOGLE_CLOUD_PROJECT}
+
+# IAM 권한 설정
 gcloud projects add-iam-policy-binding ${GOOGLE_CLOUD_PROJECT} \
     --member="user:YOUR_EMAIL@domain.com" \
     --role="roles/aiplatform.user"
@@ -176,52 +214,48 @@ gcloud auth application-default login
 # Option 2: Use a service account key (for production or CI/CD environments)
 # Download your service account key from GCP Console and set the environment variable
 export GOOGLE_APPLICATION_CREDENTIALS=/path/to/your/service-account-key.json
-```
 
-## Usage
+## 사용법
 
-### Running the Agent
-
-There are two ways to run the agent:
+### Agent 실행
+Agent를 실행하는 방법은 2가지 입니다.
 
 ```bash
-# Option 1: Use ADK web interface (recommended for interactive usage)
+# 선택사항 1: Use ADK web interface (recommended for interactive usage)
 adk web 
 
-# Option 2: Run the agent directly in the terminal
+# 선택사항 2: Run the agent directly in the terminal
 adk run rag
 ```
 
 The web interface provides a chat-like experience for interacting with the agent, while the direct run option is suitable for scripting and automated workflows.
 
-### Example Commands
+### 예시 명령어
 
 ```
-# List all GCS buckets
-[user]: List all GCS buckets
+# 모든 GCS buckets 리스트화 하기
+[user]: GCS 버킷 리스트해서 보여줘
 
-# Create a bucket for Foundation LLMs
-[user]: Create a GCS bucket named "adk-embedding-vector-stores"
+# LLM을 위한 GCS bucket 만들기
+[user]: "adk-embedding-vector-stores"라는 이름의 GCS 버킷 만들어줘
 
-# Upload a document
-[user]: Upload this PDF file to GCS bucket gs://adk-embedding-vector-stores/ and keep the same destination blob name
+# 문서 업로드
+[user]: (파일을 업로드 한 뒤) 이 PDF 파일을 GCS 버킷 gs://adk-embedding-vector-stores/에 업로드하고 같은 이름으로 유지해줘.
 
-# Create a RAG corpus
-[user]: Create a RAG corpus named "adk-embedding-vector-stores" with description "adk-embedding-vector-stores"
+# RAG corpus 생성
+[user]: "adk-embedding-vector-stores"라는 이름의 rag 만들어주고 설명은 "adk-embedding-vector-stores"로 해줘
 
-# Import a document into RAG corpus
-[user]: Import the file gs://adk-embedding-vector-stores/emebddings-vector-stores.pdf into the RAG corpus
+# 문서를 RAG corpus에 학습시키기
+[user]: gs://adk-embedding-vector-stores/emebddings-vector-stores.pdf를 RAG에 학습시켜줘
 
-# Query a specific RAG corpus about prompt engineering
-[user]: What is Chain of Thought (CoT)?
+# RAG corpus한테 질문하기
+[user]: Chain of Thought (CoT)가 뭐야?
 
-# Query across all corpora about MLOps
-[user]: How do multiple teams collaborate to operationalize GenAI models?
 ```
 
 ## Configuration
 
-Edit `rag/config/__init__.py` to customize your settings:
+`rag/config/__init__.py`을 수정해서 세팅을 커스터마이즈 하세요:
 
 - `PROJECT_ID`: Your Google Cloud project ID
 - `LOCATION`: Default location for Vertex AI and GCS resources
@@ -229,7 +263,7 @@ Edit `rag/config/__init__.py` to customize your settings:
 - `RAG_DEFAULT_*`: Defaults for RAG operations
 - `AGENT_*`: Settings for the agent
 
-## Supported File Types
+## 가능한 파일 타입
 
 The engine supports various document types, including:
 - PDF
