@@ -298,6 +298,7 @@ Contributions are welcome! Please feel free to submit a Pull Request.
 ## Example Workflow
 
 다음은 Google Gen AI Intensive course 자료를 사용해서 RAG 환경을 설정하는 방법을 보여주는 예시 워크플로우 입니다.
+
 (이 자료는 원본에 기반해 영어로 작성되었지만, 자연어 부분은 한국어로 명령을 해도 무방합니다.)
 
 ### 1. Create GCS Buckets
