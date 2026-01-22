@@ -26,6 +26,26 @@ Vertex AI RAG Engine은 Retrieval-Augmented Generation (RAG, 검색증강생성)
 
 6. **Generation**(생성): 검색된 정보는 사용자의 쿼리에 포함되어 가이드로서 생성형 AI 모델이 사실에 근거하고 관련있는 응답을 생성하는데 도움을 줍니다.
 
+## Vertex AI Search Engine
+
+Vertex AI Search Engine은 검색 및 추천을 위한 안전한 Google 품질의 엔터프라이즈급 생성형 AI 애플리케이션을 빌드합니다. Vertex AI Search를 사용하면 제한적인 머신러닝 기술을 가진 개발자라도 Google의 파운데이션 모델, 검색 및 추천 전문 기술을 활용할 수 있습니다.
+
+### Search 프로세스
+
+이는 Vertex AI Search Engine의 프로세스 순서입니다.
+
+0. **Generate Data Store**(데이터 스토어 생성): 다양한 데이터 소스를 넣을 수 있는 데이터 스토어를 생성합니다. 예) 웹사이트, (비)정형화된 데이터
+
+1. **Data ingestion**(데이터 수집): 데이터 스토어에 Cloud Storage, BigQuery 등에서 데이터를 불러옵니다.
+
+2. **Data indexing**(데이터 분류): 가져온 데이터는 Vertex AI에 의해 자동으로 인덱싱되어 검색 가능한 상태가 됩니다.
+
+3. **Application Connection**(앱 연결): 앱을 유형(검색/채팅)에 맞게 생성하여 데이터 스토어와 연결합니다.
+
+4. **Serving**(시연): Vertex AI Console내의 "Preview"기능을 활용해 실제 검색 결과를 테스트합니다.
+
+5. **Connection**(연결): 앱을 웹사이트나 애플리케이션에 API를 활용해서 연결합니다.
+
 ## Agent Development Kit (ADK)
 
 [Agent Development Kit (ADK)](https://google.github.io/adk-docs/) 는 AI 에이전트를 개발하고 배포하기 위한 유연하고 모듈식 프레임워크입니다. 주요 기능은 다음과 같습니다.:
@@ -42,7 +62,9 @@ ADK는 에이전트 개발을 소프트웨어 개발처럼 만들어주어 간�
 ## Table of Contents
 
 - [Vertex AI RAG Engine](#vertex-ai-rag-engine)
-  - [RAG Process Concepts](#rag-process-concepts)
+  - [RAG 프로세스 개념](#rag-프로세스-개념)
+- [Vertex AI Search Engine](#vertex-ai-search-engine]
+  - [Search 프로세스](#search-프로세스)
 - [Agent Development Kit (ADK)](#agent-development-kit-adk)
 - [Features](#features)
 - [Pre-created RAG Corpora](#pre-created-rag-corpora)
@@ -73,6 +95,7 @@ ADK는 에이전트 개발을 소프트웨어 개발처럼 만들어주어 간�
 - 🔎 **Semantic Search**: Query RAG corpora for relevant information with citations.
 - 🤖 **Agent-based Interface**: Interact with all functionalities through a natural language interface.
 - ⚙️ **Configurable & Extensible**: Centralized configuration, emoji-enhanced responses, and schema-compliant tools.
+- **Vertex AI Search**: Vertex AI Search의 리스트를 받아오거나 검색에 활용할 수 있습니다.
 
 ## Pre-created RAG Corpora
 
