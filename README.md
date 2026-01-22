@@ -34,7 +34,7 @@ Vertex AI Search Engine은 검색 및 추천을 위한 안전한 Google 품질�
 
 이는 Vertex AI Search Engine의 프로세스 순서입니다.
 
-0. **Generate Data Store**(데이터 스토어 생성): 다양한 데이터 소스를 넣을 수 있는 데이터 스토어를 생성합니다. 예) 웹사이트, (비)정형화된 데이터
+0. **Create Data Store**(데이터 스토어 생성): 다양한 데이터 소스를 넣을 수 있는 데이터 스토어를 생성합니다. 예) 웹사이트, (비)정형화된 데이터
 
 1. **Data ingestion**(데이터 수집): 데이터 스토어에 Cloud Storage, BigQuery 등에서 데이터를 불러옵니다.
 
@@ -44,7 +44,7 @@ Vertex AI Search Engine은 검색 및 추천을 위한 안전한 Google 품질�
 
 4. **Serving**(시연): Vertex AI Console내의 "Preview"기능을 활용해 실제 검색 결과를 테스트합니다.
 
-5. **Connection**(연결): 앱을 웹사이트나 애플리케이션에 API를 활용해서 연결합니다.
+5. **Orchestration**(통합): 앱과 웹사이트 혹은 애플리케이션과 API를 활용하여 잘 연결합니다.
 
 ## Agent Development Kit (ADK)
 
@@ -63,10 +63,10 @@ ADK는 에이전트 개발을 소프트웨어 개발처럼 만들어주어 간�
 
 - [Vertex AI RAG Engine](#vertex-ai-rag-engine)
   - [RAG 프로세스 개념](#rag-프로세스-개념)
-- [Vertex AI Search Engine](#vertex-ai-search-engine]
+- [Vertex AI Search Engine](#vertex-ai-search-engine)
   - [Search 프로세스](#search-프로세스)
 - [Agent Development Kit (ADK)](#agent-development-kit-adk)
-- [Features](#features)
+- [Features(특징)](#features(특징))
 - [Pre-created RAG Corpora](#pre-created-rag-corpora)
 - [Architecture](#architecture)
 - [Prerequisites](#prerequisites)
@@ -87,15 +87,16 @@ ADK는 에이전트 개발을 소프트웨어 개발처럼 만들어주어 간�
   - [Query Across All Corpora](#4-query-across-all-corpora)
 - [Author](#author)
 
-## Features
+## Features(특징)
 
-- 🗂️ **GCS Bucket Management**: Create, list, and manage GCS buckets for file storage.
-- 📚 **RAG Corpus Management**: Create, update, list, and delete RAG corpora in Vertex AI.
-- 📄 **Document Management**: Import documents from GCS into RAG corpora for vector search.
-- 🔎 **Semantic Search**: Query RAG corpora for relevant information with citations.
-- 🤖 **Agent-based Interface**: Interact with all functionalities through a natural language interface.
-- ⚙️ **Configurable & Extensible**: Centralized configuration, emoji-enhanced responses, and schema-compliant tools.
-- **Vertex AI Search**: Vertex AI Search의 리스트를 받아오거나 검색에 활용할 수 있습니다.
+- 🗂️ **GCS Bucket Management**: GCS 버킷을 만들고 리스트를 불러오고 관리할 수 있습니다.
+- 🫙 **Data Store Management**: Data Store를 새로고침하는 관리를 할 수 있습니다.
+- 📚 **RAG Corpus Management**: RAG corpora를 만들고 새로고침하고 리스트를 받아오고 삭제할 수 있습니다.
+- 📚 **VAS Management**: Vertex AI Search의 리스트를 받아오는 관리를 할 수 있습니다.
+- 📄 **Document Management**: GCS에 있는 데이터를 RAG corpora에 학습시킬 수 있습니다.
+- 🔎 **Semantic Search**: Vertex AI Search 나 RAG corpora에게 질문을 하여 정보를 얻을 수 있습니다.
+- 🤖 **Agent-based Interface**: 모든 기능을 자연어를 통해 접근할 수 있습니다.
+- ⚙️ **Configurable & Extensible**: 설정값을 변경하거나 여러가지 확장 가능성을 갖고 있습니다.
 
 ## Pre-created RAG Corpora
 
@@ -117,23 +118,25 @@ Each corpus contains relevant PDF documents imported from Google and Kaggle's Ge
 
 These documents are from Google and Kaggle's Gen AI Intensive course, which broke the GUINNESS WORLD RECORDS™ title for the Largest Attendance at a Virtual AI Conference in One Week with more than 280,000 signups in just 20 days. The materials provide a comprehensive overview of Vertex AI capabilities and best practices for working with generative AI.
 
-## Architecture
+## 설계도
 
-The project follows a modular architecture based on the ADK framework:
+이 프로젝트는 ADK 프레임워크를 기반으로 하는 모듈식 아키텍처를 따릅니다.
 
 ![ADK Vertex AI RAG Architecture](.Images/ADK-VertexAI-RAG-Architecture.png)
 
-The architecture consists of several key components:
+이 아키텍처는 다음과 같은 몇 가지 핵심 구성 요소로 이루어져 있습니다.
 
-1. **User Interface**: Interact with the system through ADK Web or CLI
-2. **Agent Development Kit (ADK)**: The core orchestration layer that manages tools and user interactions
-3. **Function Tools**: Modular components divided into:
-   - **Storage Tools**: For GCS bucket and file management
-   - **RAG Corpus Tools**: For corpus management and semantic search
+1. **User Interface**: ADK 웹 또는 CLI를 통해 시스템과 상호 작용합니다.
+2. **Agent Development Kit (ADK)**: 관리 도구와 사용자 상호 작용을 통합하는 핵심 중추입니다.
+3. **Function Tools**: 모듈형 구성 요소는 다음과 같이 구분됩니다.:
+   - **Storage Tools**: GCS 버킷 및 파일 관리용
+   - **RAG Corpus Tools**: 코퍼스 관리 및 의미 검색용
+   - **Search Tools**: 데이터 스토어 및 VAS 관리, 검색용
 4. **Google Cloud Services**:
-   - **Google Cloud Storage**: Stores document files
-   - **Vertex AI RAG Engine**: Provides embedding, indexing and retrieval capabilities
-   - **Gemini 2.0 LLM Model**: Generates responses grounded in retrieved contexts
+   - **Google Cloud Storage**: 문서 파일을 저장합니다.
+   - **Vertex AI RAG Engine**: 임베딩, 인덱싱 및 검색 기능을 제공합니다.
+   - **Vertex AI Search**: 인덱싱 된 데이터스토어와 그에 대한 검색 기능을 제공합니다.
+   - **Gemini 2.5 LLM Model**: 검색된 맥락에 기반한 응답을 생성합니다.
 
 File structure:
 ```
@@ -146,17 +149,19 @@ adk-vertex-ai-rag-engine/
 │   └── tools/                    # ADK function tools
 │       ├── __init__.py           # Tools package initialization
 │       ├── corpus_tools.py       # RAG corpus management tools
+│       ├── search_tools.py	# AI Search management tools
 │       └── storage_tools.py      # GCS bucket management tools
 ├── .Images/                      # Demo images and GIFs
 └── README.md                     # Project documentation
 ```
 
-## Prerequisites
+## Prerequisites(사전 조건)
 
 - 파이썬 3.11+
 - Vertex AI API가 활성화된 Google Cloud project
 - [Google Cloud SDK](https://cloud.google.com/sdk/docs/install)
-- Vertex AI and Cloud Storage의 접근
+- Vertex AI 와 Cloud Storage의 접근
+- Vertex AI Search 와 Data Store의 접근
 
 ## 설치
 
@@ -173,14 +178,18 @@ source .venv/bin/activate  # On Windows: .venv\Scripts\activate
 pip install -r requirements.txt
 
 # 본인의 Google Cloud project으로 설정
-export GOOGLE_CLOUD_PROJECT="your-project-id"
+#프로젝트 이름
+export GOOGLE_CLOUD_PROJECT="your-project-id"	
+#RAG엔진 위치
 export GOOGLE_CLOUD_LOCATION="us-central1"
+#데이터 스토어 및 APP 위치
+export GOOGLE_APP_LOCATION="global"
 
-# Google Cloud services 활성화하기 (필요)
+# Google Cloud services 활성화하기 (중요)
 gcloud services enable aiplatform.googleapis.com --project=${GOOGLE_CLOUD_PROJECT}
 gcloud services enable storage.googleapis.com --project=${GOOGLE_CLOUD_PROJECT}
 
-# IAM 권한 설정
+# IAM 권한 설정 (선택:소유주가 아니거나 관리형 계정을 따로 만들고 싶을때)
 gcloud projects add-iam-policy-binding ${GOOGLE_CLOUD_PROJECT} \
     --member="user:YOUR_EMAIL@domain.com" \
     --role="roles/aiplatform.user"
@@ -193,7 +202,7 @@ gcloud projects add-iam-policy-binding ${GOOGLE_CLOUD_PROJECT} \
 export GOOGLE_API_KEY=your_gemini_api_key_here
 
 # 인증 자격 증명 설정
-# 선택 1: Use gcloud application-default credentials (recommended for development)
+# 선택 1: Use gcloud application-default credentials (추천 for development)
 gcloud auth application-default login
 
 # 선택 2: Use a service account key (for production or CI/CD environments)
@@ -207,7 +216,7 @@ export GOOGLE_APPLICATION_CREDENTIALS=/path/to/your/service-account-key.json
 Agent를 실행하는 방법은 2가지 입니다.
 
 ```bash
-# 선택사항 1: Use ADK web interface (recommended for interactive usage)
+# 선택사항 1: Use ADK web interface (추천 for interactive usage)
 adk web 
 
 # 선택사항 2: Run the agent directly in the terminal
@@ -241,13 +250,15 @@ The web interface provides a chat-like experience for interacting with the agent
 
 ## Configuration
 
-`rag/config/__init__.py`을 수정해서 세팅을 커스터마이즈 하세요:
+`rag/config/__init__.py`을 수정해서 세팅을 커스터마이즈 하세요.
 
-- `PROJECT_ID`: Your Google Cloud project ID
-- `LOCATION`: Default location for Vertex AI and GCS resources
-- `GCS_DEFAULT_*`: Defaults for GCS operations
-- `RAG_DEFAULT_*`: Defaults for RAG operations
+- `PROJECT_ID`: 구글 클라우드 프로젝트 ID (환경변수 추천)
+- `LOCATION`: Vertex AI and GCS resources 의 기본 위치 (GCS는 굳이 같을 필요는 없음)
+- `GCS_DEFAULT_*`: GCS 작동 기본값
+- `RAG_DEFAULT_*`: RAG 작동 기본값
+- `SEARCH_DEFALUT_*~: VAS 작동 기본값
 - `AGENT_*`: Settings for the agent
+
 
 ## 가능한 파일 타입
 
@@ -286,7 +297,8 @@ Contributions are welcome! Please feel free to submit a Pull Request.
 
 ## Example Workflow
 
-Below is a complete example workflow showing how to set up the entire RAG environment with the Google Gen AI Intensive course materials:
+다음은 Google Gen AI Intensive course 자료를 사용해서 RAG 환경을 설정하는 방법을 보여주는 예시 워크플로우 입니다.
+(이 자료는 원본에 기반해 영어로 작성되었지만, 자연어 부분은 한국어로 명령을 해도 무방합니다.)
 
 ### 1. Create GCS Buckets
 
