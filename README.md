@@ -1,6 +1,6 @@
-# Agent Development Kit (ADK) + Vertex AI RAG Engine
+# Agent Development Kit (ADK) + Vertex AI RAG Engine + Vertex AI Search
 
-구글의 [Agent Development Kit (ADK)](https://google.github.io/adk-docs/) 과 [Vertex AI RAG Engine](https://cloud.google.com/vertex-ai/generative-ai/docs/rag-engine/rag-overview)으로 제작된 검색 증강 생성(RAG) 엔진. 이 프로젝트는 Google Cloud Storage (GCS) 버킷, RAG corpora 및 문서 검색을 관리하기 위한 모듈식 프레임워크를 제공합니다.
+구글의 [Agent Development Kit (ADK)](https://google.github.io/adk-docs/) 과 [Vertex AI RAG Engine](https://cloud.google.com/vertex-ai/generative-ai/docs/rag-engine/rag-overview), [Vertex AI Search](https://docs.cloud.google.com/generative-ai-app-builder)로 제작된 검색 증강 엔진. 이 프로젝트는 Google Cloud Storage (GCS) 버킷, RAG corpora, VAS 및 문서 검색을 관리하기 위한 모듈식 프레임워크를 제공합니다.
 
 ![RAG Query Interface](.Images/RAG-Single-Query-Search-Web.gif)
 
