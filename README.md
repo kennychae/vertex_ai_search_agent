@@ -48,7 +48,7 @@ Vertex AI Search Engine은 검색 및 추천을 위한 안전한 Google 품질�
 
 ## Agent Development Kit (ADK)
 
-[Agent Development Kit (ADK)](https://google.github.io/adk-docs/) 는 AI 에이전트를 개발하고 배포하기 위한 유연하고 모듈식 프레임워크입니다. 주요 기능은 다음과 같습니다.:
+[Agent Development Kit (ADK)](https://google.github.io/adk-docs/) 는 AI 에이전트를 개발하고 배포하기 위한 유연하고 모듈식 프레임워크입니다. 주요 기능은 다음과 같습니다.
 
 - **Model-Agnostic**(모델에 구애받지 않음): ADK는 Gemini 및 Google 생태계에 최적화되어 있지만 모든 모델에서 작동합니다.
 - **Flexible Orchestration**(유연한 통합): 워크플로 에이전트(Sequential, Parallel, Loop)를 사용하여 워크플로를 정의하거나, LLM 기반 동적 라우팅을 활용하여 적응형 동작을 구현할 수 있습니다..
@@ -66,16 +66,16 @@ ADK는 에이전트 개발을 소프트웨어 개발처럼 만들어주어 간�
 - [Vertex AI Search Engine](#vertex-ai-search-engine)
   - [Search 프로세스](#search-프로세스)
 - [Agent Development Kit (ADK)](#agent-development-kit-adk)
-- [Features(특징)](#features(특징))
+- [Features(특징)](#features특징)
 - [Pre-created RAG Corpora](#pre-created-rag-corpora)
-- [Architecture](#architecture)
-- [Prerequisites](#prerequisites)
-- [Installation](#installation)
-- [Usage](#usage)
-  - [Running the Agent](#running-the-agent)
-  - [Example Commands](#example-commands)
+- Architecture(설계도)](#architecture특징)
+- [Prerequisites(사전 조건)](#prerequisites사전-조건)
+- [Installation(설치)](#installation설치)
+- [Usage(사용법)](#usage사용법)
+  - [Agent 실행](#agent-실행)
+  - [예시 명령어](#예시-명령어)
 - [Configuration](#configuration)
-- [Supported File Types](#supported-file-types)
+- [Supported File Types(가능한 파일 타입)](#supported-file-types가능한-파일-타입)
 - [Troubleshooting](#troubleshooting)
 - [Contributing](#contributing)
 - [License](#license)
@@ -118,7 +118,7 @@ Each corpus contains relevant PDF documents imported from Google and Kaggle's Ge
 
 These documents are from Google and Kaggle's Gen AI Intensive course, which broke the GUINNESS WORLD RECORDS™ title for the Largest Attendance at a Virtual AI Conference in One Week with more than 280,000 signups in just 20 days. The materials provide a comprehensive overview of Vertex AI capabilities and best practices for working with generative AI.
 
-## 설계도
+## Architecture(설계도)
 
 이 프로젝트는 ADK 프레임워크를 기반으로 하는 모듈식 아키텍처를 따릅니다.
 
@@ -163,7 +163,7 @@ adk-vertex-ai-rag-engine/
 - Vertex AI 와 Cloud Storage의 접근
 - Vertex AI Search 와 Data Store의 접근
 
-## 설치
+## Installation(설치)
 
 ```bash
 # repository 복사
@@ -210,7 +210,7 @@ gcloud auth application-default login
 export GOOGLE_APPLICATION_CREDENTIALS=/path/to/your/service-account-key.json
 ```
 
-## 사용법
+## Usage(사용법)
 
 ### Agent 실행
 Agent를 실행하는 방법은 2가지 입니다.
@@ -260,7 +260,7 @@ The web interface provides a chat-like experience for interacting with the agent
 - `AGENT_*`: Settings for the agent
 
 
-## 가능한 파일 타입
+## Supported File Types(가능한 파일 타입)
 
 The engine supports various document types, including:
 - PDF
@@ -388,3 +388,5 @@ How multiple teams collaborate to operationalize both models and GenAI applicati
 ## Author
 
 For more articles on AI/ML and Generative AI, follow me on Medium: https://medium.com/@arjun-prabhulal
+
+Vertex AI Search 결합과 한글화는 저를 통해 진행되었습니다. 질문이 있으시면 연락주세요. kennychae8@gmail.com
