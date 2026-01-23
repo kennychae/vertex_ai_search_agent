@@ -68,7 +68,7 @@ ADK는 에이전트 개발을 소프트웨어 개발처럼 만들어주어 간�
 - [Agent Development Kit (ADK)](#agent-development-kit-adk)
 - [Features(특징)](#features특징)
 - [Pre-created RAG Corpora](#pre-created-rag-corpora)
-- Architecture(설계도)](#architecture특징)
+- [Architecture(설계도)](#architecture특징)
 - [Prerequisites(사전 조건)](#prerequisites사전-조건)
 - [Installation(설치)](#installation설치)
 - [Usage(사용법)](#usage사용법)
