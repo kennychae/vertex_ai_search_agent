@@ -31,4 +31,5 @@ from .storage_tools import (
 from .search_tools import (
     vertex_search_tool,
     list_search_engines_tool,
+    select_and_compile,
 )
