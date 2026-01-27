@@ -167,7 +167,7 @@ adk-vertex-ai-rag-engine/
 
 ```bash
 # repository 복사
-git clone https://github.com/arjunprabhulal/adk-vertex-ai-rag-engine.git
+git clone https://github.com/kennychae/vertex_ai_search_agent.git
 cd adk-vertex-ai-rag-engine
 
 # (선택사항) 가상환경 생성 및 활성화
@@ -389,5 +389,6 @@ How multiple teams collaborate to operationalize both models and GenAI applicati
 ## Author
 
 For more articles on AI/ML and Generative AI, follow me on Medium: https://medium.com/@arjun-prabhulal
+
 
 Vertex AI Search 결합과 한글화는 저를 통해 진행되었습니다. 질문이 있으시면 연락주세요. kennychae8@gmail.com
