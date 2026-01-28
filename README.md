@@ -168,7 +168,7 @@ adk-vertex-ai-rag-engine/
 ```bash
 # repository 복사
 git clone https://github.com/kennychae/vertex_ai_search_agent.git
-cd adk-vertex-ai-rag-engine
+cd vertex_ai_search_agent
 
 # (선택사항) 가상환경 생성 및 활성화
 python -m venv .venv
@@ -392,3 +392,4 @@ For more articles on AI/ML and Generative AI, follow me on Medium: https://mediu
 
 
 Vertex AI Search 결합과 한글화는 저를 통해 진행되었습니다. 질문이 있으시면 연락주세요. kennychae8@gmail.com
+
