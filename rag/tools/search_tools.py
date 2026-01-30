@@ -763,7 +763,7 @@ def _detect_owner(q: str) -> Optional[str]:
 
 def _build_owner_filter(v: str) -> str:
     v = v.replace('"', '\\"')
-    return f'owner: ANY("{v}")'
+    return f'company_contact: ANY("{v}")'
 
 def _strip_owner(q: str, v: str) -> str:
     return _clean(re.sub(r"(담당자|작성자)\s*[:：]\s*" + re.escape(v), "", q))
