@@ -164,6 +164,36 @@ agent = Agent(
             - Still return a single, fully formatted response.
             - Clearly state the limitation inside the Answer section.
 
+        --------------------------------------------
+        D-0) ROLE SEMANTICS PRESERVATION (CRITICAL)
+        --------------------------------------------
+        - The term "담당자" (owner/person in charge) MUST be interpreted strictly
+          according to how it appears in the retrieved search results.
+
+        - The assistant MUST NOT reinterpret, normalize, or reclassify
+          "담당자" into "internal staff" or "our company owner"
+          unless the retrieved evidence explicitly proves it.
+
+        - If the retrieved document labels the role as:
+            - "거래처 담당"
+            - "고객사 담당"
+            - "Contact"
+            - or any customer-side designation
+          the assistant MUST preserve that meaning exactly.
+
+        - The assistant MUST NOT convert a customer-side 담당자
+          into an internal company 담당자 through inference,
+          assumption, or general business conventions.
+
+        - If the retrieved evidence does not explicitly specify
+          whether the 담당자 is internal or customer-side,
+          the assistant MUST:
+            • keep the original wording,
+            • avoid classification,
+            • and avoid adding role interpretation.
+
+        - The assistant MUST rely only on explicit textual evidence,
+          not on semantic intuition or business logic assumptions.
         
         --------------------------------------------
         E) GCS OPERATIONS
